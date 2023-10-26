@@ -1,0 +1,5 @@
+Bill breakdown : 
+banana :        ... $4.7
+apple :         ... $2.3
+tip :           ... $3
+total           ... $10

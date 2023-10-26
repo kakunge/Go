@@ -24,7 +24,7 @@ func newBill(name string) bill {
 }
 
 // Receiver Function
-func (b bill) format() string {
+func (b *bill) format() string {
 	fs := "Bill breakdown: \n"
 	var total float64 = 0
 
@@ -33,7 +33,17 @@ func (b bill) format() string {
 		total += v
 	}
 
-	fs += fmt.Sprintf("%-15v ... $%0.2v", "total ", total)
+	fs += fmt.Sprintf("%-15v ... $%0.2v\n", "tip :", b.tip)
+
+	fs += fmt.Sprintf("%-15v ... $%0.2v", "total ", total + b.tip)
 
 	return fs
+}
+
+func (b *bill) updateTip(tip float64) {
+	b.tip = tip
+}
+
+func (b *bill) addItem(name string, price float64) {
+	b.items[name] = price
 }
